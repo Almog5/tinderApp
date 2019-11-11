@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="Classes.js"></script>
+    <link rel="stylesheet" href="style2.css">
+
+    <script type="text/javascript">
+      
+        var UserArr = new MainApp(UsersAr);
+
+
+         function find() {
+             var gender = document.querySelector('input[name="gender"]:checked').value;
+             var min = document.getElementById('min').value;
+             var max = document.getElementById('max').value;
+             UserArr.Filter(gender, min, max);
+             document.getElementById('Main').innerHTML = "";
+             if(UserArr.Render()===undefined)
+             init();
+             else            
+             document.getElementById('Main').innerHTML = UserArr.Render();
+         }
+
+         function moove() {
+             console.log("111111")
+             UserArr.Next();
+             $("body").html("");
+             console.log(UserArr.Render());
+             $("body").append(UserArr.Render());
+             
+         }
+
+    </script>
+
+    <title></title>
+</head>
+
+       <body id="Main" onload="init()">
+         
+
+    </body>
+</html>
