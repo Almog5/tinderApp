@@ -123,17 +123,6 @@ class Profile {
     }
 
     Render() {
-        //let str = " <div class='container'>";
-        //str += "<h1>" + this.name + "</h1>";
-        //str += "<img src='" + this.image + "'/>";
-        //str += "<h1>Gender: " + this.gender + "</h1>";
-        ////str += "<h1>Age: " + this.age + "</h1>";
-        //str += "<h1>Height: " + this.height + "</h1>";
-        //str += "<h1>Country: " + this.location + "</h1>";
-        ////str += "<span><input type='button' id='like' value='like' onclick='moove()'/>";
-        ////str += "<input type='button' id='Next' value='Next' onclick='moove()'/></span>";
-        ////str += "</div>";
-       // return str;
        let str=`<div class="container-fluid">
           <div class="row">
             <div class"col-12" id="start"><h1> click like if you like!</h1></div>
@@ -174,15 +163,10 @@ class MainApp {
                 //this.Users[i] = new Profile(Users[i].id, Users[i].name, Users[i].gender, Users[i].age, Users[i].height, Users[i].location, Users[i].image, Users[i].premium);
         }
         console.log(this.Users)
-        this.filterby = {
-            "gender": 'male',
-            "min": 0,
-            "max": 99
-        }
         this.filtered = [];
     }
 
-    Filter(gender, min, max) {
+    Filter({gender, min, max}) {
         this.counter = 0;
         this.filtered = this.Users.filter(user => 
                      (user.gender == gender && user.age >= min && user.age <= max)
@@ -224,12 +208,13 @@ function init() {
     <div class="row" id="base">
             <div class="col-12">
                     <h1>Choose partner gender:</h1>
-            </div>       
+            </div>  
+            
             <div class="col-12">
-                    <input type="radio" id="male" name="gender" value="male"> Male<br>
+                    <span><input type="radio" id="male" name="gender" value="male"><h1> Male</h1><br></span>
             </div>      
             <div class="col-12">
-                    <input type="radio" id="female" name="gender" value="female"> Female<br>
+                    <span><input type="radio" id="female" name="gender" value="female"><h1>Female<h1><br></span>
             </div>      
     <hr />
              <div class="col-12">

@@ -10,16 +10,21 @@
     <script type="text/javascript">
       
         var UserArr = new MainApp(UsersAr);
-
+        var conditions = {
+            gender:"male",
+            min: 10,
+            max: 80
+        }
 
          function find() {
-             var gender = document.querySelector('input[name="gender"]:checked').value;
-             var min = document.getElementById('min').value;
-             var max = document.getElementById('max').value;
-             UserArr.Filter(gender, min, max);
-             document.getElementById('Main').innerHTML = "";
-             if(UserArr.Render()===undefined)
-             init();
+
+             conditions.gender=document.querySelector('input[name="gender"]:checked').value;
+             conditions.min=document.getElementById('min').value;
+             conditions.max=document.getElementById('max').value;
+             UserArr.Filter(conditions);
+             if(UserArr.Render()===undefined){
+                 alert("we dont find users with thus conditions")
+             init();}
              else            
              document.getElementById('Main').innerHTML = UserArr.Render();
          }
